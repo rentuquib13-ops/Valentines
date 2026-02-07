@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Valentine ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(120deg, #ff758c, #ff7eb3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Poppins', sans-serif;
+    }
+    .container {
+        background: rgba(255,255,255,0.95);
+        width: 420px;
+        padding: 40px;
+        border-radius: 25px;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        animation: fadeIn 1.2s ease;
+    }
+    h1 {
+        font-family: 'Playfair Display', serif;
+        color: #e63946;
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+    p {
+        font-size: 16px;
+        color: #444;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+    .heart {
+        font-size: 50px;
+        animation: beat 1.5s infinite;
+    }
+    .buttons {
+        margin-top: 20px;
+    }
+    button {
+        font-size: 18px;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    button:hover {
+        transform: scale(1.08);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .yes {
+        background: linear-gradient(135deg, #ff4d6d, #ff758c);
+        color: white;
+        margin-right: 10px;
+    }
+    .no {
+        background: #dee2e6;
+        color: #555;
+        position: absolute;
+    }
+    @keyframes beat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+<div class="container" id="card">
+    <div class="heart">❤️</div>
+    <h1>My Love</h1>
+    <p>
+        Every moment with you feels like home.  
+        You are my favorite smile, my safest place,  
+        and the reason my days are brighter.
+    </p>
+    <p>
+        So I just wanted to ask…
+    </p>
+    <h1>Will you be my Valentine?</h1>
+
+    <div class="buttons">
+        <button class="yes" onclick="yesClick()">Yes, of course 💖</button>
+        <button class="no" id="noBtn" onmouseover="moveButton()">No 🙈</button>
+    </div>
+</div>
+
+<script>
+function yesClick() {
+    document.getElementById("card").innerHTML = `
+        <div class="heart">💞</div>
+        <h1>Yay! 💕</h1>
+        <p>
+            You just made me the happiest person ever.  
+            I can't wait to spend Valentine’s with you.
+        </p>
+        <p>
+            I love you 😘
+        </p>
+    `;
+}
+
+function moveButton() {
+    const btn = document.getElementById("noBtn");
+    const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+}
+</script>
+</body>
+</html>
